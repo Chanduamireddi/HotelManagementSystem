@@ -2,12 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User Profile</title>
+    <title>User Profile - Humber Hotel</title>
     <link rel="stylesheet" href="styles/userprofile.css">
 </head>
 <body>
     <header>
-        <h1>User Profile</h1>
+        <div class="header-left">
+            <img src="images/HumberLogo.jpg" alt="Logo" class="logo">
+            <span class="hotel-name">Humber Hotel</span>
+        </div>
+        <nav class="header-center">
+            <ul>
+                <li><a href="homepage.jsp">Home</a></li>
+                <li><a href="rooms.jsp">Rooms</a></li>
+                <li><a href="Booking Confirmation.jsp">Book Now</a></li>
+                <li><a href="contactus.jsp">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="user-profile">
+                <span class="username">User</span>
+                <div class="dropdown-menu">
+                    <a href="userprofile.jsp">User Profile</a>
+                    <a href="logout.jsp">Logout</a>
+                </div>
+            </div>
+        </div>
     </header>
 
     <section class="profile-container">
@@ -57,7 +77,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Humber International. All rights reserved.</p>
+        <p>&copy; 2024 Humber Hotel. All rights reserved.</p>
     </footer>
 </body>
 </html>

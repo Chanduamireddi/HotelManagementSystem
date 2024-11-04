@@ -1,10 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding-top: 80px;
-    padding-bottom: 50px;
     background-color: #f4f4f9;
     color: #333;
+    padding-top: 80px;
+    padding-bottom: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,19 +17,99 @@ body {
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1000;
+}
+
+.header-left, .header-center, .header-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.hotel-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.header-center ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.header-center ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header-center ul li a:hover {
+    color: #4CAF50;
+}
+
+.user-profile {
+    position: relative;
+    cursor: pointer;
+}
+
+.username {
+    color: white;
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    z-index: 1000;
+    width: 150px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown-menu a:hover {
+    background-color: #4CAF50;
+}
+
+.user-profile:hover .dropdown-menu {
+    display: block;
+}
+
+footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-header h1 {
-    margin: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .confirmation-container {
@@ -150,19 +235,6 @@ header h1 {
 
 .action-button:hover {
     opacity: 0.9;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    font-size: 14px;
-    z-index: 1000;
 }
 
 @media (max-width: 768px) {

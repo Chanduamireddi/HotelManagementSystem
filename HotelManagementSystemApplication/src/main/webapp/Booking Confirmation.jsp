@@ -2,12 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Booking Confirmation - [Hotel Name]</title>
+    <title>Booking Confirmation - Humber Hotel</title>
     <link rel="stylesheet" href="styles/bookingconfirmation.css">
 </head>
 <body>
+
     <header>
-        <h1>Booking Confirmation</h1>
+        <div class="header-left">
+            <img src="images/HumberLogo.jpg" alt="Logo" class="logo">
+            <span class="hotel-name">Humber Hotel</span>
+        </div>
+        <nav class="header-center">
+            <ul>
+                <li><a href="homepage.jsp">Home</a></li>
+                <li><a href="rooms.jsp">Rooms</a></li>
+                <li><a href="Booking Confirmation.jsp">Book Now</a></li>
+                <li><a href="contactus.jsp">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="user-profile">
+                <span class="username">User</span>
+                <div class="dropdown-menu">
+                    <a href="userprofile.jsp">User Profile</a>
+                    <a href="logout.jsp">Logout</a>
+                </div>
+            </div>
+        </div>
     </header>
     
     <section class="confirmation-container">
@@ -56,15 +77,15 @@
             </div>
 
             <div class="button-group">
-                <a href="cancel-booking.jsp" class="action-button cancel">Cancel Booking</a>
-                <a href="modify-booking.jsp" class="action-button modify">Modify Booking</a>
-                <a href="index.jsp" class="action-button home">Home</a>
+                <a href="homepage.jsp" class="action-button cancel">Cancel Booking</a>
+                <a href="homepage.jsp" class="action-button modify">Modify Booking</a>
+                <a href="homepage.jsp" class="action-button home">Home</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 [Humber Hotel]. All rights reserved.</p>
+        <p>&copy; 2024 Humber Hotel. All rights reserved.</p>
     </footer>
 </body>
 </html>
