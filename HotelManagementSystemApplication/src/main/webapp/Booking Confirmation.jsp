@@ -77,8 +77,8 @@
             </div>
 
             <div class="button-group">
-                <a href="homepage.jsp" class="action-button cancel">Cancel Booking</a>
-                <a href="homepage.jsp" class="action-button modify">Modify Booking</a>
+                <a href="homepage.jsp" class="action-button cancel">Cancel</a>
+                <a href="homepage.jsp" class="action-button modify">Confirm Booking</a>
                 <a href="homepage.jsp" class="action-button home">Home</a>
             </div>
         </div>
