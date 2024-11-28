@@ -7,7 +7,6 @@
 </head>
 <body>
     <div class="registration-page">
-
         <div class="image-section">
             <img src="images/Hotel Login Image.jpg" alt="Hotel Image">
         </div>
@@ -23,10 +22,14 @@
                         <input type="checkbox" id="roleSwitch" onclick="toggleRole()">
                         <span class="slider-round"></span>
                     </label>
-                    <span id="roleTextAlt">Customer</span>
+                    <span id="roleTextAlt">Admin</span>
                 </div>
 
+                <!-- Registration Form -->
                 <form action="RegisterServlet" method="post">
+                    <!-- Hidden input to send role value -->
+                    <input type="hidden" id="role" name="role" value="user">
+
                     <label for="firstName">First Name:</label>
                     <input type="text" id="firstName" name="firstName" required>
 
@@ -54,18 +57,29 @@
     </div>
 
     <script>
+        // Function to toggle role value
         function toggleRole() {
             const roleSwitch = document.getElementById("roleSwitch");
+            const roleInput = document.getElementById("role");
             const roleText = document.getElementById("roleText");
             const roleTextAlt = document.getElementById("roleTextAlt");
 
+            // Update the hidden role input and role label colors
             if (roleSwitch.checked) {
+                roleInput.value = "admin";
                 roleText.style.color = "#ccc";
                 roleTextAlt.style.color = "#4CAF50";
             } else {
+                roleInput.value = "user";
                 roleText.style.color = "#4CAF50";
                 roleTextAlt.style.color = "#ccc";
             }
+        }
+
+        // Check for error message from server
+        const errorMessage = "<%= request.getAttribute("errorMessage") != null ? request.getAttribute("errorMessage") : "" %>";
+        if (errorMessage) {
+            alert(errorMessage);
         }
     </script>
 </body>
