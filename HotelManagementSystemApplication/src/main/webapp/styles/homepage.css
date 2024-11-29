@@ -81,11 +81,12 @@ header {
     color: white;
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 5px;
+    margin-top: 0; /* Fix gap issue */
     z-index: 1000;
     width: 150px;
     transition: opacity 0.3s ease;
     opacity: 0;
+    pointer-events: auto; /* Ensure interaction */
 }
 
 .user-profile:hover .dropdown-menu,

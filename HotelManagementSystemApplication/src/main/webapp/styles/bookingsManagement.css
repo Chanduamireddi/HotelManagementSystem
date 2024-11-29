@@ -1,0 +1,289 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    padding-bottom: 80px;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 80px; /* Consistent header height */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.hotel-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-center ul {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.header-center ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.header-center ul li a.active, .header-center ul li a:hover {
+    color: #4CAF50;
+}
+
+.header-right {
+    position: relative;
+}
+
+.user-profile {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.username {
+    color: white;
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    z-index: 1000;
+}
+
+.user-profile:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #4CAF50;
+}
+
+/* Main Section Styling */
+main {
+    margin-top: 60px; /* Adjusted for fixed header height */
+    padding: 20px 40px;
+}
+
+.bookings-management {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.bookings-management h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.bookings-table th, .bookings-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.bookings-table th {
+    background-color: #333;
+    color: white;
+}
+
+.bookings-table td {
+    background-color: #fff;
+}
+
+.bookings-table .view-btn, .bookings-table .edit-btn, .bookings-table .delete-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bookings-table .view-btn {
+    background-color: #007BFF;
+    color: white;
+}
+
+.bookings-table .view-btn:hover {
+    background-color: #0056b3;
+}
+
+.bookings-table .edit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.bookings-table .edit-btn:hover {
+    background-color: #45a049;
+}
+
+.bookings-table .delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.bookings-table .delete-btn:hover {
+    background-color: #e53935;
+}
+
+.booking-actions {
+    margin-top: 20px;
+}
+
+.add-booking-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-booking-btn:hover {
+    background-color: #45a049;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.modal-content form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modal-content form input, .modal-content form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.modal-content .save-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-content .save-btn:hover {
+    background-color: #45a049;
+}
+
+.modal-content .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content .close:hover {
+    color: black;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

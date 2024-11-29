@@ -1,0 +1,182 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    padding-bottom: 80px;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.hotel-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-center ul {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.header-center ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.header-center ul li a.active, .header-center ul li a:hover {
+    color: #4CAF50;
+}
+
+.header-right {
+    position: relative;
+}
+
+.user-profile {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.username {
+    color: white;
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    z-index: 1000;
+}
+
+.user-profile:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #4CAF50;
+}
+
+/* Main Section Styling */
+main {
+    margin-top: 80px;
+    padding: 20px 40px;
+}
+
+.reports {
+    text-align: center;
+}
+
+.reports h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.chart {
+    width: 45%;
+    margin: 20px;
+}
+
+.table-container {
+    margin: 20px auto;
+    width: 80%;
+    text-align: left;
+}
+
+.reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.reports-table th, .reports-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.reports-table th {
+    background-color: #333;
+    color: white;
+}
+
+.reports-table td {
+    background-color: #fff;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

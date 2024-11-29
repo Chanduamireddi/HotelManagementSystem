@@ -26,11 +26,10 @@
 
         <div class="header-right">
             <div class="user-profile">
-                <span class="username">User Account</span>
+                <span class="username">Login/Register</span>
                 <div class="dropdown-menu">
-                    <a href="userprofile.jsp">User Profile</a>
-                    <a href="logout.jsp">Logout</a>
-                    
+                    <a href="loginpage.jsp">User Login</a>
+                    <a href="registration.jsp">Registration</a>
                 </div>
             </div>
         </div>
@@ -144,56 +143,38 @@
         </div>
     </section>
 
-<section class="customer-reviews">
-    <h3>Customer Reviews</h3>
-    <div class="review-cards">
-        <div class="review-card">
-            <div class="review-image">
-                <img src="images/ProfilePic.jpg" alt="Customer Photo">
+    <section class="customer-reviews">
+        <h3>Customer Reviews</h3>
+        <div class="review-cards">
+            <div class="review-card">
+                <div class="review-image">
+                    <img src="images/ProfilePic.jpg" alt="Customer Photo">
+                </div>
+                <div class="review-text">
+                    <p>"An amazing experience! The rooms were spotless, and the staff was incredibly attentive."</p>
+                    <p class="review-author">- Sarah, Guest</p>
+                </div>
             </div>
-            <div class="review-text">
-                <p>"An amazing experience! The rooms were spotless, and the staff was incredibly attentive."</p>
-                <p class="review-author">- Sarah, Guest</p>
+            <div class="review-card">
+                <div class="review-image">
+                    <img src="images/Comment1.jpg" alt="Customer Photo">
+                </div>
+                <div class="review-text">
+                    <p>"Luxurious and comfortable stay with top-notch facilities. Highly recommended!"</p>
+                    <p class="review-author">- Michael, Business Traveler</p>
+                </div>
             </div>
-        </div>
-        <div class="review-card">
-            <div class="review-image">
-                <img src="images/Comment1.jpg" alt="Customer Photo">
-            </div>
-            <div class="review-text">
-                <p>"Luxurious and comfortable stay with top-notch facilities. Highly recommended!"</p>
-                <p class="review-author">- Michael, Business Traveler</p>
-            </div>
-        </div>
-        <div class="review-card">
-            <div class="review-image">
-                <img src="images/Comment2.jpg" alt="Customer Photo">
-            </div>
-            <div class="review-text">
-                <p>"The ambiance and amenities were just perfect for our getaway."</p>
-                <p class="review-author">- Jessica, Tourist</p>
-            </div>
-        </div>
-        <div class="review-card">
-            <div class="review-image">
-                <img src="images/Comment3.jpg" alt="Customer Photo">
-            </div>
-            <div class="review-text">
-                <p>"Top-quality service from start to finish. I’ll definitely come back."</p>
-                <p class="review-author">- Raj, Business Traveler</p>
+            <div class="review-card">
+                <div class="review-image">
+                    <img src="images/Comment2.jpg" alt="Customer Photo">
+                </div>
+                <div class="review-text">
+                    <p>"The ambiance and amenities were just perfect for our getaway."</p>
+                    <p class="review-author">- Jessica, Tourist</p>
+                </div>
             </div>
         </div>
-        <div class="review-card">
-            <div class="review-image">
-                <img src="images/Comment5.jpg" alt="Customer Photo">
-            </div>
-            <div class="review-text">
-                <p>"Perfect location with all the amenities I needed. Highly recommended!"</p>
-                <p class="review-author">- Alex, Solo Traveler</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <footer>
         <p>&copy; 2024 Humber Hotel Group. All rights reserved. | <a href="privacy.jsp">Privacy Policy</a></p>
