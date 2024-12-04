@@ -58,6 +58,9 @@
                 roleText.style.color = "#4CAF50";
                 roleTextAlt.style.color = "#ccc";
             }
+
+            // Debugging: Log the updated role value
+            console.log("Role set to:", roleInput.value);
         }
 
         // Show alert if there's an error query parameter

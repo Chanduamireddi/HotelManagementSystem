@@ -41,88 +41,6 @@
     <meta charset="UTF-8">
     <title>Booking Confirmation - Humber Hotel</title>
     <link rel="stylesheet" href="styles/bookingconfirmation.css">
-    <style>
-        /* Adjustments to Styling */
-        .confirmation-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .fixed-section {
-            flex: 1;
-            max-width: 40%;
-            position: sticky;
-            top: 100px;
-        }
-
-        .room-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        .scrollable-details {
-            flex: 2;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-        }
-
-        .booking-summary {
-            margin: 20px 0;
-        }
-
-        .summary-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .summary-item:last-child {
-            border-bottom: none;
-        }
-
-        .summary-item span:first-child {
-            font-weight: bold;
-        }
-
-        .button-group {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .action-button {
-            width: 30%; /* All buttons have consistent width */
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-        }
-
-        .action-button.cancel {
-            background-color: #e74c3c;
-        }
-
-        .action-button.modify {
-            background-color: #f39c12;
-        }
-
-        .action-button.home {
-            background-color: #4CAF50;
-        }
-
-        .action-button:hover {
-            opacity: 0.9;
-        }
-    </style>
 </head>
 <body>
 <header>
@@ -134,7 +52,6 @@
         <ul>
             <li><a href="homepage.jsp">Home</a></li>
             <li><a href="rooms.jsp">Rooms</a></li>
-            <li><a href="bookingConfirmation.jsp">Book Now</a></li>
             <li><a href="contactus.jsp">Contact Us</a></li>
         </ul>
     </nav>
@@ -200,6 +117,7 @@
         </div>
 
         <form action="BookingServlet" method="post">
+            <input type="hidden" name="action" value="newBooking">
             <input type="hidden" name="roomId" value="<%= roomId %>">
             <input type="hidden" name="checkin" value="<%= checkInDate %>">
             <input type="hidden" name="checkout" value="<%= checkOutDate %>">
@@ -209,9 +127,9 @@
         </form>
 
         <% if (message != null) { %>
-            <div class="message <%= message.equals("Booking successful!") ? "success" : "error" %>">
-                <%= message %>
-            </div>
+            <script>
+                alert("<%= message %>");
+            </script>
         <% } %>
 
         <div class="button-group">

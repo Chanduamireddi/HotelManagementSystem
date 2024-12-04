@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>Contact Us - Humber Hotel</title>
     <link rel="stylesheet" href="styles/contact.css">
+    <script>
+        function showSuccessPopup() {
+            document.getElementById('successPopup').style.display = 'flex';
+        }
+        function closeSuccessPopup() {
+            document.getElementById('successPopup').style.display = 'none';
+        }
+    </script>
 </head>
 <body>
 
@@ -16,7 +24,6 @@
             <ul>
                 <li><a href="homepage.jsp">Home</a></li>
                 <li><a href="rooms.jsp">Rooms</a></li>
-                <li><a href="Booking Confirmation.jsp">Book Now</a></li>
                 <li><a href="contactus.jsp">Contact Us</a></li>
             </ul>
         </nav>
@@ -62,5 +69,15 @@
     <footer>
         <p>&copy; 2024 Humber Hotel Group. All rights reserved. | <a href="privacy.jsp">Privacy Policy</a></p>
     </footer>
+
+    <!-- Success Popup -->
+    <% if (request.getParameter("success") != null) { %>
+        <div id="successPopup" class="popup-overlay" style="display: flex;">
+            <div class="popup-content">
+                <p>Thank you! We have received your query. Stay tuned, we will get back to you within 48 hours.</p>
+                <button onclick="closeSuccessPopup()">Close</button>
+            </div>
+        </div>
+    <% } %>
 </body>
 </html>

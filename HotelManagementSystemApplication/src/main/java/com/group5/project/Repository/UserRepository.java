@@ -52,4 +52,20 @@ public class UserRepository {
         }
         return null;
     }
+	
+	public void updateUser(User user) {
+        String query = "UPDATE users SET first_name = ?, last_name = ?, email = ?, phno = ? WHERE email = ?";
+        
+        try (Connection conn = DatabaseUtility.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, user.getFirstName());
+            stmt.setString(2, user.getLastName());
+            stmt.setString(3, user.getEmail());
+            stmt.setString(4, user.getPhone());
+            stmt.setString(5, user.getEmail());
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

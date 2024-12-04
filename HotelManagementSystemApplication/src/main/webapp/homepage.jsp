@@ -18,8 +18,7 @@
             <ul>
                 <li><a href="homepage.jsp">Home</a></li>
                 <li><a href="rooms.jsp">Rooms</a></li>
-                <li><a href="Booking Confirmation.jsp">Book Now</a></li>
-                <li><a href="registration.jsp">Registration</a></li>
+                <li><a href="bookingHistory.jsp">Book History</a></li>
                 <li><a href="contactus.jsp">Contact Us</a></li>
             </ul>
         </nav>

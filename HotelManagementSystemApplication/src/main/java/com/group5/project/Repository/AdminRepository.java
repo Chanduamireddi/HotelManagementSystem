@@ -55,4 +55,21 @@ public class AdminRepository {
         }
         return null;
     }
+	
+	public void updateAdmin(Admin admin) {
+        String query = "UPDATE admin SET first_name = ?, middle_name = ?, last_name = ?, email = ?, phno = ? WHERE email = ?";
+        
+        try (Connection conn = DatabaseUtility.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, admin.getFirstName());
+            stmt.setString(2, admin.getMiddleName());
+            stmt.setString(3, admin.getLastName());
+            stmt.setString(4, admin.getEmail());
+            stmt.setString(5, admin.getPhone());
+            stmt.setString(6, admin.getEmail());
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

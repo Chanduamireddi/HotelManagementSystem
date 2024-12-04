@@ -1,6 +1,7 @@
 package com.group5.project.Controller;
 
 import jakarta.servlet.ServletException;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,7 +14,7 @@ import com.group5.project.Model.User;
 import com.group5.project.Repository.AdminRepository;
 import com.group5.project.Repository.UserRepository;
 
-// Map the servlet to a URL
+@WebServlet("/RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
     private final UserRepository userRepo = new UserRepository();
     private final AdminRepository adminRepo = new AdminRepository();

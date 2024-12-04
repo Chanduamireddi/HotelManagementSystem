@@ -2,6 +2,7 @@ package com.group5.project.Model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Room {
     private String roomId;           
@@ -12,10 +13,42 @@ public class Room {
     private LocalDate startDate;    
     private LocalDate endDate;       
     private int maxAdults;          
-    private int maxChildren;        
+    private int maxChildren; 
+    private LocalDateTime sysTime;       
+
     private String logId;            
 
-    // Getters and setters
+ 
+    public Room(String roomId, String roomName, BigDecimal actualPrice, BigDecimal discountedPrice, String features,
+			LocalDate startDate, LocalDate endDate, int maxAdults, int maxChildren) {
+		super();
+		this.roomId = roomId;
+		this.roomName = roomName;
+		this.actualPrice = actualPrice;
+		this.discountedPrice = discountedPrice;
+		this.features = features;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.maxAdults = maxAdults;
+		this.maxChildren = maxChildren;
+	}
+
+	public Room(String roomName, String description, BigDecimal actualPrice, BigDecimal discountedPrice,
+            String features, LocalDate startDate, LocalDate endDate, int maxAdults, int maxChildren,
+            LocalDateTime sysTime, String logId) {
+    this.roomName = roomName;
+    this.actualPrice = actualPrice;
+    this.discountedPrice = discountedPrice;
+    this.features = features;
+    this.startDate = startDate;
+    this.endDate = endDate;
+    this.maxAdults = maxAdults;
+    this.maxChildren = maxChildren;
+    this.sysTime = sysTime;
+    this.logId = logId;
+}
+
+	// Getters and setters
     public String getRoomId() {
         return roomId;
     }

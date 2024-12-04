@@ -26,7 +26,7 @@
                 </div>
 
                 <!-- Registration Form -->
-                <form action="RegisterServlet" method="post">
+                <form action="RegistrationServlet" method="post">
                     <!-- Hidden input to send role value -->
                     <input type="hidden" id="role" name="role" value="user">
 

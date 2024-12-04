@@ -28,7 +28,6 @@
             <ul>
                 <li><a href="homepage.jsp">Home</a></li>
                 <li><a href="rooms.jsp">Rooms</a></li>
-                <li><a href="BookingConfirmation.jsp">Book Now</a></li>
                 <li><a href="contactus.jsp">Contact Us</a></li>
             </ul>
         </nav>
@@ -47,6 +46,7 @@
         <section class="room-search">
             <h2>Search Rooms</h2>
             <form action="RoomSearchServlet" method="post">
+                <input type="hidden" name="action" value="searchRoom">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="checkin">Check-In Date:</label>
