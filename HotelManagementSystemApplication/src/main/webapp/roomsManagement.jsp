@@ -6,6 +6,11 @@
 <title>Rooms Management - Humber Hotel</title>
 <link rel="stylesheet" href="styles/roomsManagement.css">
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById('startDate').setAttribute('min', today);
+    document.getElementById('endDate').setAttribute('min', today);
+});
  // Open the Add Room Modal
     function openAddRoomModal() {
         const modal = document.getElementById('addRoomModal');
@@ -217,7 +222,11 @@
 
 	<main>
 		<section class="rooms-management">
-			<h2>Rooms Management</h2>
+			<div class="rooms-management-header">
+				<h2>Rooms Management</h2>
+				<button class="add-room-btn" onclick="openAddRoomModal()">Add
+					New Room</button>
+			</div>
 			<table class="rooms-table">
 				<thead>
 					<tr>
@@ -237,10 +246,7 @@
 					<%-- Rows will be dynamically inserted via JavaScript --%>
 				</tbody>
 			</table>
-			<div class="room-actions">
-				<button class="add-room-btn" onclick="openAddRoomModal()">Add
-					New Room Type</button>
-			</div>
+
 		</section>
 	</main>
 
@@ -248,7 +254,7 @@
 	<div id="addRoomModal" class="modal">
 		<div class="modal-content">
 			<span class="close" onclick="closeAddRoomModal()">&times;</span>
-			<h3>Add New Room Type</h3>
+			<h3>Add New Room</h3>
 			<form action="RoomSearchServlet" method="POST">
 				<!-- Hidden field to set action as 'addRoom' -->
 				<input type="hidden" name="action" value="addRoom"> <label
@@ -280,48 +286,40 @@
 	</div>
 
 	<div id="editRoomModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeEditRoomModal()">&times;</span>
-        <h3>Edit Room Type</h3>
-        <form action="RoomSearchServlet" method="POST">
-            <!-- Hidden field for action -->
-            <input type="hidden" name="action" value="updateRoom">
-            
-            <!-- Hidden field for room ID -->
-            <input type="hidden" id="editRoomType" name="roomId">
+		<div class="modal-content">
+			<span class="close" onclick="closeEditRoomModal()">&times;</span>
+			<h3>Edit Room Type</h3>
+			<form action="RoomSearchServlet" method="POST">
+				<!-- Hidden field for action -->
+				<input type="hidden" name="action" value="updateRoom">
 
-            <label for="editActualPrice">Actual Price:</label>
-            <input type="number" id="editActualPrice" name="actualPrice" required>
-            
-            <label for="editDiscountedPrice">Discounted Price:</label>
-            <input type="number" id="editDiscountedPrice" name="discountedPrice">
-            
-            <label for="editFeatures">Features:</label>
-            <textarea id="editFeatures" name="features" required></textarea>
-            
-            <label for="editStartDate">Start Date:</label>
-            <input type="date" id="editStartDate" name="startDate" required>
-            
-            <label for="editEndDate">End Date:</label>
-            <input type="date" id="editEndDate" name="endDate" required>
-            
-            <label for="editMaxAdults">Max Adults:</label>
-            <input type="number" id="editMaxAdults" name="maxAdults" required>
-            
-            <label for="editMaxChildren">Max Children:</label>
-            <input type="number" id="editMaxChildren" name="maxChildren" required>
-            
-            <button type="submit" class="save-btn">Update</button>
-        </form>
-    </div>
-</div>
+				<!-- Hidden field for room ID -->
+				<input type="hidden" id="editRoomType" name="roomId"> <label
+					for="editActualPrice">Actual Price:</label> <input type="number"
+					id="editActualPrice" name="actualPrice" required> <label
+					for="editDiscountedPrice">Discounted Price:</label> <input
+					type="number" id="editDiscountedPrice" name="discountedPrice">
+
+				<label for="editFeatures">Features:</label>
+				<textarea id="editFeatures" name="features" required></textarea>
+
+				<label for="editStartDate">Start Date:</label> <input type="date"
+					id="editStartDate" name="startDate" required> <label
+					for="editEndDate">End Date:</label> <input type="date"
+					id="editEndDate" name="endDate" required> <label
+					for="editMaxAdults">Max Adults:</label> <input type="number"
+					id="editMaxAdults" name="maxAdults" required> <label
+					for="editMaxChildren">Max Children:</label> <input type="number"
+					id="editMaxChildren" name="maxChildren" required>
+
+				<button type="submit" class="save-btn">Update</button>
+			</form>
+		</div>
+	</div>
 
 
 	<footer>
-		<p>
-			&copy; 2024 Humber Hotel Group. All rights reserved. | <a
-				href="privacy.jsp">Privacy Policy</a>
-		</p>
+		<p>&copy; 2024 Humber Hotel Group. All rights reserved.</p>
 	</footer>
 
 </body>

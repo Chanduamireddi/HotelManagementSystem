@@ -18,6 +18,15 @@
     <title>Available Rooms - Humber Hotel Group</title>
     <link rel="stylesheet" href="styles/rooms.css">
 </head>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById('checkin').setAttribute('min', today);
+    document.getElementById('checkout').setAttribute('min', today);
+});
+</script>
+
+
 <body>
     <header>
         <div class="header-left">
@@ -117,4 +126,7 @@
         <p>&copy; 2024 Humber Hotel Group. All rights reserved. | <a href="privacy.jsp">Privacy Policy</a></p>
     </footer>
 </body>
+
+
+
 </html>

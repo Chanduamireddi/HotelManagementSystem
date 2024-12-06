@@ -16,37 +16,47 @@ import java.util.List;
 
 public class RoomRepository {
 
-    // Find available rooms based on search criteria
-    public List<Room> findAvailableRooms(String checkIn, String checkOut, int adults, int children) {
-        List<Room> rooms = new ArrayList<>();
-        String query = "SELECT * FROM room WHERE start_date <= ? AND end_date >= ? AND max_adults >= ? AND max_children >= ?";
+	// Find available rooms based on search criteria
+	public List<Room> findAvailableRooms(String checkIn, String checkOut, int adults, int children) {
+	    List<Room> rooms = new ArrayList<>();
+	    String query = "SELECT * FROM room r WHERE r.start_date <= ? AND r.end_date >= ? " +
+	                   "AND r.max_adults >= ? AND r.max_children >= ? " +
+	                   "AND r.room_id NOT IN ( " +
+	                   "    SELECT b.room_id FROM bookings b WHERE NOT ( " +
+	                   "        b.checkout_date <= ? OR b.checkin_date >= ? " +
+	                   "    ) " +
+	                   ")";
 
+	    try (Connection conn = DatabaseUtility.getConnection();
+	         PreparedStatement stmt = conn.prepareStatement(query)) {
+	        // Set parameters for the room search
+	        stmt.setString(1, checkIn);
+	        stmt.setString(2, checkOut);
+	        stmt.setInt(3, adults);
+	        stmt.setInt(4, children);
 
-        try (Connection conn = DatabaseUtility.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setString(1, checkIn);
-            stmt.setString(2, checkOut);
-            stmt.setInt(3, adults);
-            stmt.setInt(4, children);
+	        // Set parameters for the booking exclusion logic
+	        stmt.setString(5, checkIn);
+	        stmt.setString(6, checkOut);
 
+	        ResultSet rs = stmt.executeQuery();
+	        while (rs.next()) {
+	            Room room = new Room(query, query, null, null, query, null, null, children, children);
+	            room.setRoomId(rs.getString("room_id"));
+	            room.setRoomName(rs.getString("room_name"));
+	            room.setFeatures(rs.getString("features"));
+	            room.setActualPrice(rs.getBigDecimal("actual_price"));
+	            room.setDiscountedPrice(rs.getBigDecimal("discounted_price"));
+	            room.setStartDate(rs.getDate("start_date").toLocalDate());
+	            room.setEndDate(rs.getDate("end_date").toLocalDate());
+	            rooms.add(room);
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return rooms;
+	}
 
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                Room room = new Room(query, query, null, null, query, null, null, children, children);
-                room.setRoomId(rs.getString("room_id"));
-                room.setRoomName(rs.getString("room_name"));
-                room.setFeatures(rs.getString("features"));
-                room.setActualPrice(rs.getBigDecimal("actual_price"));
-                room.setDiscountedPrice(rs.getBigDecimal("discounted_price"));
-                room.setStartDate(rs.getDate("start_date").toLocalDate());
-                room.setEndDate(rs.getDate("end_date").toLocalDate());
-                rooms.add(room);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return rooms;
-    }
     
     public List<Room> getAllRooms() {
         List<Room> rooms = new ArrayList<>();

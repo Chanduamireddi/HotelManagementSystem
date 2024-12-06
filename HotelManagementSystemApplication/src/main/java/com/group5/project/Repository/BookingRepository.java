@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.group5.project.Model.Booking;
 import com.group5.project.Util.DatabaseUtility;
 
 public class BookingRepository {
@@ -147,6 +148,52 @@ public class BookingRepository {
             return false;
         }
     }
+    
+    public List<Booking> getBookingsByUserId(String userId) throws Exception {
+        List<Booking> bookings = new ArrayList<>();
+        String query = "SELECT booking_id, room_id, checkin_date, checkout_date, amount, status "
+                     + "FROM bookings "
+                     + "WHERE user_id = ?";
+
+        Connection connection=DatabaseUtility.getConnection();
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, userId);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Booking booking = new Booking();
+                    booking.setBookingId(rs.getString("booking_id"));
+                    booking.setRoomType(rs.getString("room_id"));
+                    booking.setCheckInDate(rs.getDate("checkin_date"));
+                    booking.setCheckOutDate(rs.getDate("checkout_date"));
+                    booking.setTotalPrice(rs.getDouble("amount"));
+                    booking.setStatus(rs.getString("status"));
+
+                    bookings.add(booking);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("Error fetching bookings for user ID: " + userId, e);
+        }
+
+        return bookings;
+    }
+    
+    public boolean updateBookingStatus(String bookingId, String status) {
+        String query = "UPDATE bookings SET status = ? WHERE booking_id = ?";
+        try (Connection connection = DatabaseUtility.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, status);
+            stmt.setString(2, bookingId);
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0; // Return true if the update was successful
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 
 }

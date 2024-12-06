@@ -1,0 +1,87 @@
+/* Enhanced Styling for Body Content */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+}
+
+main {
+    margin-top: 100px;
+    padding: 30px 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+main h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+main h2 {
+    color: #333;
+    margin-top: 20px;
+    font-size: 24px;
+    border-left: 4px solid #4CAF50;
+    padding-left: 10px;
+}
+
+main p {
+    line-height: 1.8;
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+main ul {
+    margin: 10px 0 20px 20px;
+    padding-left: 20px;
+}
+
+main ul li {
+    color: #444;
+    margin-bottom: 10px;
+    font-size: 15px;
+    position: relative;
+}
+
+main ul li::before {
+    content: '✔';
+    color: #4CAF50;
+    position: absolute;
+    left: -20px;
+    font-size: 16px;
+}
+
+main p, ul li {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main a {
+    color: #4CAF50;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+main a:hover {
+    color: #2e7d32;
+    text-decoration: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

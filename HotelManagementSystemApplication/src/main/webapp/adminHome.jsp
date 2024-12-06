@@ -106,7 +106,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Humber Hotel Group. All rights reserved. | <a href="privacy.jsp">Privacy Policy</a></p>
+        <p>&copy; 2024 Humber Hotel Group. All rights reserved.</a></p>
     </footer>
 
     <script src="scripts/hero.js"></script>

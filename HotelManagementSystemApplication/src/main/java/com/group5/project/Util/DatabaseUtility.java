@@ -9,7 +9,7 @@ public class DatabaseUtility {
     // Database connection details
     private static final String DB_URL = "jdbc:mysql://localhost:3306/hotelreservation?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
     private static final String USER = "root";
-    private static final String PASS = "Siva@7567";
+    private static final String PASS = "Chandu@123";
 
     // Static block to load the MySQL driver
     static {
@@ -31,7 +31,7 @@ public class DatabaseUtility {
             return connection;
         } catch (SQLException e) {
             System.err.println("Error establishing database connection: " + e.getMessage());
-            throw e; // Rethrow exception for further handling
+            throw e;
         }
     }
 }

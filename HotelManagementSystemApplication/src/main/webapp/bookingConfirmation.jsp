@@ -1,7 +1,6 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.concurrent.TimeUnit" %>
-<%@ page import="java.util.Arrays" %>
 <%
     // Fetch query parameters
     String roomId = request.getParameter("roomId");
@@ -12,7 +11,13 @@
     String checkInDate = request.getParameter("checkin");
     String checkOutDate = request.getParameter("checkout");
     String guests = request.getParameter("guests"); // Total guests
-    String message = (String) request.getAttribute("message"); // Success or error message
+
+    // Fetch the success/error message from request or session
+    String message = (String) request.getAttribute("message");
+    if (message == null) {
+        message = (String) session.getAttribute("message");
+        session.removeAttribute("message"); // Clear the session message after fetching
+    }
 
     // Handle features (comma-separated)
     String[] featureList = features != null ? features.split(",") : new String[0];
@@ -42,6 +47,56 @@
     <title>Booking Confirmation - Humber Hotel</title>
     <link rel="stylesheet" href="styles/bookingconfirmation.css">
 </head>
+<script type="text/javascript">
+function showPopup(message) {
+    if (message) {
+        // Show the popup by making it visible
+        const popupOverlay = document.createElement("div");
+        popupOverlay.style.position = "fixed";
+        popupOverlay.style.top = "0";
+        popupOverlay.style.left = "0";
+        popupOverlay.style.width = "100%";
+        popupOverlay.style.height = "100%";
+        popupOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+        popupOverlay.style.display = "flex";
+        popupOverlay.style.justifyContent = "center";
+        popupOverlay.style.alignItems = "center";
+        popupOverlay.style.zIndex = "1000";
+
+        const popupBox = document.createElement("div");
+        popupBox.style.backgroundColor = "white";
+        popupBox.style.padding = "20px";
+        popupBox.style.borderRadius = "10px";
+        popupBox.style.textAlign = "center";
+        popupBox.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.3)";
+        popupBox.innerHTML = `
+            <h3 style="color: #4caf50; margin-bottom: 10px;">Humber says:</h3>
+            <p style="font-size: 16px; color: #333; margin-bottom: 20px;">${message}</p>
+            <button id="popup-ok" style="background: #4caf50; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background 0.3s;">OK</button>
+        `;
+
+        popupOverlay.appendChild(popupBox);
+        document.body.appendChild(popupOverlay);
+
+        // Add event listener to handle the OK button click
+        document.getElementById("popup-ok").addEventListener("click", function () {
+            document.body.removeChild(popupOverlay);
+            if (message === "Booking successful!") {
+                window.location.href = "bookingHistory.jsp";
+            } else {
+                window.location.href = "rooms.jsp";
+            }
+        });
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const message = '<%= message != null ? message : "" %>';
+    if (message) {
+        showPopup(message);
+    }
+});
+</script>
 <body>
 <header>
     <div class="header-left">
@@ -116,25 +171,27 @@
             </div>
         </div>
 
-        <form action="BookingServlet" method="post">
-            <input type="hidden" name="action" value="newBooking">
-            <input type="hidden" name="roomId" value="<%= roomId %>">
-            <input type="hidden" name="checkin" value="<%= checkInDate %>">
-            <input type="hidden" name="checkout" value="<%= checkOutDate %>">
-            <input type="hidden" name="totalPrice" value="<%= totalPrice %>">
-            <input type="hidden" name="guests" value="<%= guests %>">
-            <button type="submit" class="action-button modify">Confirm Booking</button>
-        </form>
-
-        <% if (message != null) { %>
-            <script>
-                alert("<%= message %>");
-            </script>
-        <% } %>
-
         <div class="button-group">
-            <a href="rooms.jsp" class="action-button cancel">Cancel</a>
-            <a href="homepage.jsp" class="action-button home">Home</a>
+            <!-- Confirm Booking Button -->
+            <form action="BookingServlet" method="post">
+                <input type="hidden" name="action" value="newBooking">
+                <input type="hidden" name="roomId" value="<%= roomId %>">
+                <input type="hidden" name="checkin" value="<%= checkInDate %>">
+                <input type="hidden" name="checkout" value="<%= checkOutDate %>">
+                <input type="hidden" name="totalPrice" value="<%= totalPrice %>">
+                <input type="hidden" name="guests" value="<%= guests %>">
+                <button type="submit" class="action-button modify">Confirm Booking</button>
+            </form>
+
+            <!-- Cancel Button -->
+            <form action="rooms.jsp">
+                <button type="submit" class="action-button cancel">Cancel</button>
+            </form>
+
+            <!-- Home Button -->
+            <form action="homepage.jsp">
+                <button type="submit" class="action-button home">Home</button>
+            </form>
         </div>
     </div>
 </section>

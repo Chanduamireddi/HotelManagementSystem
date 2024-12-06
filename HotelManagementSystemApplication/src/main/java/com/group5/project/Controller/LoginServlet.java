@@ -60,6 +60,7 @@ public class LoginServlet extends HttpServlet {
                 isValid = true;
                 request.getSession().setAttribute("user", user);
                 request.getSession().setAttribute("role", "user");
+                request.getSession().setAttribute("userId",user.getUserId());
                 response.sendRedirect("homepage.jsp");
                 return;
             }

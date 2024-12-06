@@ -17,9 +17,9 @@
         <nav class="header-center">
             <ul>
                 <li><a href="homepage.jsp">Home</a></li>
-                <li><a href="rooms.jsp">Rooms</a></li>
-                <li><a href="Booking Confirmation.jsp">Book Now</a></li>
-                <li><a href="contactus.jsp">Contact Us</a></li>
+                <li><a href="loginpage.jsp">Rooms</a></li>
+                <li><a href="loginpage.jsp">Book Now</a></li>
+                <li><a href="loginpage.jsp">Contact Us</a></li>
             </ul>
         </nav>
 
@@ -40,7 +40,7 @@
             <div class="carousel-content">
                 <h2>Welcome to Humber Hotel Group</h2>
                 <p>Experience luxury and comfort in the heart of the city.</p>
-                <a href="Booking Confirmation.jsp" class="hero-button">Book Your Stay</a>
+                <a href="loginpage.jsp" class="hero-button">Book Your Stay</a>
             </div>
         </div>
         <div class="carousel-slide fade">
@@ -48,7 +48,7 @@
             <div class="carousel-content">
                 <h2>Discover Elegance</h2>
                 <p>Unmatched luxury with breathtaking views.</p>
-                <a href="Booking Confirmation.jsp" class="hero-button">Explore More</a>
+                <a href="loginpage.jsp" class="hero-button">Explore More</a>
             </div>
         </div>
     </section>
@@ -113,7 +113,7 @@
                             <li>Private Balcony</li>
                             <li>Personal Butler</li>
                         </ul>
-                        <a href="Booking Confirmation.jsp" class="book-button">Book Now</a>
+                        <a href="loginpage.jsp" class="book-button">Book Now</a>
                     </div>
                 </div>
             </div>

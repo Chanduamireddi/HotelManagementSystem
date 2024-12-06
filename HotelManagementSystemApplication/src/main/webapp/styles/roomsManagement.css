@@ -113,24 +113,26 @@ main {
 
 .rooms-management {
     margin: 20px auto;
-    text-align: center;
 }
 
-.rooms-management h2 {
-    font-size: 32px;
+.rooms-management-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-.room-actions {
-    margin-top: 20px;
-    text-align: center;
+.rooms-management-header h2 {
+    font-size: 24px;
+    margin: 0;
+    text-align: left;
 }
 
 .add-room-btn {
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 14px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -149,21 +151,32 @@ main {
 }
 
 .rooms-table th, .rooms-table td {
-    padding: 12px 15px;
+    padding: 8px 10px; /* Reduced padding */
     border: 1px solid #ddd;
+    word-wrap: break-word;
 }
 
 .rooms-table th {
     background-color: #333;
     color: white;
+    max-width: 150px; /* Set max-width for better spacing */
 }
 
 .rooms-table td {
     background-color: #fff;
+    max-width: 150px; /* Set max-width for better spacing */
+}
+
+.rooms-table .actions-column {
+    text-align: center;
+    white-space: nowrap;
+    width: 120px; /* Reduced width for the actions column */
 }
 
 .rooms-table .edit-btn, .rooms-table .delete-btn {
-    padding: 8px 12px;
+    display: inline-block;
+    margin: 0 5px; /* Space between buttons */
+    padding: 5px 10px;
     font-size: 14px;
     border: none;
     border-radius: 4px;

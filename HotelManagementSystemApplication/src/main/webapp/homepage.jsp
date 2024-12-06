@@ -41,7 +41,7 @@
             <div class="carousel-content">
                 <h2>Welcome to Humber Hotel Group</h2>
                 <p>Experience luxury and comfort in the heart of the city.</p>
-                <a href="Booking Confirmation.jsp" class="hero-button">Book Your Stay</a>
+                <a href="rooms.jsp" class="hero-button">Book Your Stay</a>
             </div>
         </div>
         <div class="carousel-slide fade">
@@ -49,7 +49,7 @@
             <div class="carousel-content">
                 <h2>Discover Elegance</h2>
                 <p>Unmatched luxury with breathtaking views.</p>
-                <a href="Booking Confirmation.jsp" class="hero-button">Explore More</a>
+                <a href="rooms.jsp" class="hero-button">Explore More</a>
             </div>
         </div>
     </section>
@@ -195,7 +195,7 @@
 </section>
 
     <footer>
-        <p>&copy; 2024 Humber Hotel Group. All rights reserved. | <a href="privacy.jsp">Privacy Policy</a></p>
+        <p>&copy; 2024 Humber Hotel Group. All rights reserved.</a></p>
     </footer>
 
     <script src="scripts/hero.js"></script>
