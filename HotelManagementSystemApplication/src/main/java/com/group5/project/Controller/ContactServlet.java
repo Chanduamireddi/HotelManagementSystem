@@ -1,14 +1,18 @@
 package com.group5.project.Controller;
 
 import com.group5.project.Model.Query;
+
 import com.group5.project.Repository.QueryRepository;
-import com.group5.project.Model.User;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+import com.group5.project.Model.User;
+
+
 import java.io.IOException;
 
 @WebServlet("/ContactServlet")

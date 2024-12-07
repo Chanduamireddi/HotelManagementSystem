@@ -1,11 +1,5 @@
 package com.group5.project.Controller;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,6 +21,13 @@ import com.group5.project.Model.Room;
 import com.group5.project.Repository.RoomRepository;
 import com.group5.project.Util.DatabaseUtility;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 @WebServlet("/RoomSearchServlet")
 public class RoomServlet extends HttpServlet {
     private final RoomRepository roomRepo = new RoomRepository();
@@ -34,7 +35,10 @@ public class RoomServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Fetch all rooms from repository
-        List<Room> allRooms = roomRepo.getAllRooms();
+    	
+    	HttpSession session = request.getSession(false); // false to avoid creating a new session
+        Admin admin = (session != null) ? (Admin) session.getAttribute("admin") : null;
+        List<Room> allRooms = roomRepo.getAllRooms(admin.getAdminId());
 
         // Construct JSON response manually
         JSONArray roomsArray = new JSONArray();
@@ -81,7 +85,6 @@ public class RoomServlet extends HttpServlet {
             int maxChildren = Integer.parseInt(request.getParameter("maxChildren"));
             String roomId = generateRoomId();
 
-            // Fetching logId from session
             HttpSession session = request.getSession(false); // false to avoid creating a new session
             Admin admin = (session != null) ? (Admin) session.getAttribute("admin") : null;
             String logId = (admin != null) ? admin.getAdminId() : "defaultLogId";

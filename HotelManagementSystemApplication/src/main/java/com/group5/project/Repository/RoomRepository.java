@@ -58,34 +58,42 @@ public class RoomRepository {
 	}
 
     
-    public List<Room> getAllRooms() {
-        List<Room> rooms = new ArrayList<>();
-        String query = "SELECT * FROM room";
+	public List<Room> getAllRooms(String logId) {
+	    List<Room> rooms = new ArrayList<>();
 
-        try (Connection connection = DatabaseUtility.getConnection();
-             PreparedStatement statement = connection.prepareStatement(query);
-             ResultSet resultSet = statement.executeQuery()) {
+	    String query = "SELECT * FROM room WHERE log_id = ?";
 
-            while (resultSet.next()) {
-                Room room = new Room(query, query, null, null, query, null, null, 0, 0);
-                room.setRoomId(resultSet.getString("room_id"));
-                room.setRoomName(resultSet.getString("room_name"));
-                room.setActualPrice(resultSet.getBigDecimal("actual_price"));
-                room.setDiscountedPrice(resultSet.getBigDecimal("discounted_price"));
-                room.setFeatures(resultSet.getString("features"));
-                room.setStartDate(resultSet.getDate("start_date").toLocalDate());
-                room.setEndDate(resultSet.getDate("end_date").toLocalDate());
-                room.setMaxAdults(resultSet.getInt("max_adults"));
-                room.setMaxChildren(resultSet.getInt("max_children"));
+	    try (Connection connection = DatabaseUtility.getConnection();
+	         PreparedStatement statement = connection.prepareStatement(query)) {
 
-                rooms.add(room);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+	        // Set the logId parameter in the prepared statement
+	        statement.setString(1, logId);
 
-        return rooms;
-    }
+	        try (ResultSet resultSet = statement.executeQuery()) {
+	            while (resultSet.next()) {
+	                // Create a new Room object and populate it with values from the ResultSet
+	                Room room = new Room(query, query, null, null, query, null, null, 0, 0);
+	                room.setRoomId(resultSet.getString("room_id"));
+	                room.setRoomName(resultSet.getString("room_name"));
+	                room.setActualPrice(resultSet.getBigDecimal("actual_price"));
+	                room.setDiscountedPrice(resultSet.getBigDecimal("discounted_price"));
+	                room.setFeatures(resultSet.getString("features"));
+	                room.setStartDate(resultSet.getDate("start_date").toLocalDate());
+	                room.setEndDate(resultSet.getDate("end_date").toLocalDate());
+	                room.setMaxAdults(resultSet.getInt("max_adults"));
+	                room.setMaxChildren(resultSet.getInt("max_children"));
+
+	                // Add the room to the list
+	                rooms.add(room);
+	            }
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return rooms;
+	}
+
     
     public boolean addRoom(Room room,String logId) {
         String query = "INSERT INTO room (room_id, room_name, actual_price, discounted_price, features, start_date, end_date, max_adults, max_children,systime,log_id) "

@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class DatabaseUtility {
 
     // Database connection details
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/hotelreservation?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-    private static final String USER = "root";
-    private static final String PASS = "Chandu@123";
+	 private static final String DB_URL = "jdbc:mysql://localhost:3306/hotelreservation?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+	    private static final String USER = "root";
+	    private static final String PASS = "Siva@7567";
 
     // Static block to load the MySQL driver
     static {
