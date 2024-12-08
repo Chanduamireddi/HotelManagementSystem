@@ -80,7 +80,7 @@
                             <li>24-Hour Room Service</li>
                             <li>Access to Pool</li>
                         </ul>
-                        <a href="Booking Confirmation.jsp" class="book-button">Book Now</a>
+                        <a href="rooms.jsp" class="book-button">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                             <li>Complimentary Breakfast</li>
                             <li>Business Desk</li>
                         </ul>
-                        <a href="Booking Confirmation.jsp" class="book-button">Book Now</a>
+                        <a href="rooms.jsp" class="book-button">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                             <li>Private Balcony</li>
                             <li>Personal Butler</li>
                         </ul>
-                        <a href="Booking Confirmation.jsp" class="book-button">Book Now</a>
+                        <a href="rooms.jsp" class="book-button">Book Now</a>
                     </div>
                 </div>
             </div>
